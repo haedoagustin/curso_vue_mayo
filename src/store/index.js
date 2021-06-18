@@ -38,6 +38,7 @@ export default new Vuex.Store({
         async load_people({commit}) {
             commit('ENABLE_LOADING')
             let list = await peopleService.getPeople()
+            if (list == null) list =[]
             commit('SET_PEOPLE', list)
             commit('DISABLE_LOADING')
         },
